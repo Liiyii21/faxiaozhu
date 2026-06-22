@@ -49,13 +49,15 @@ assert.match(appSource, /function DivinationProfilePage/, "divination profile ta
 assert.match(appSource, /page\.id === "legal" && activeTab === 1/, "legal case tab should switch on activeTab");
 assert.match(appSource, /page\.id === "beauty" && activeTab === 2/, "beauty advisor tab should switch on activeTab");
 assert.match(appSource, /page\.id === "divination" && activeTab === 2/, "divination profile tab should switch on activeTab");
+assert.doesNotMatch(appSource, /phone-actions\s+sticky-actions/, "legal CTAs should scroll with content instead of covering it");
+assert.doesNotMatch(appSource, /divination-actions\s+sticky-actions/, "divination CTAs should scroll with content instead of covering it");
 assert.doesNotMatch(appSource, /page\.id !== "beauty" &&\s*\(\s*<BottomNav/s, "beauty should also render bottom navigation");
 assert.match(styleSource, /\.modal-form/, "conversion form styles should exist");
 assert.match(styleSource, /\.modal-consent/, "consent row styles should exist");
 assert.match(styleSource, /\.beauty-sticky-actions/, "beauty sticky CTA styles should exist");
 assert.match(styleSource, /\.tab-page/, "secondary tab page styles should exist");
 assert.match(styleSource, /\.tab-card/, "secondary tab cards should be styled");
-assert.match(styleSource, /padding-bottom:\s*calc\(90px/, "divination content should reserve room for sticky actions");
+assert.doesNotMatch(styleSource, /\.sticky-actions\s*\{[^}]*position:\s*sticky/s, "CTA actions should not use sticky positioning");
 assert.match(styleSource, /min-height:\s*44px/, "small tap targets should be at least 44px high");
 assert.doesNotMatch(styleSource, /\.phone-frame\s*\{[^}]*border:/s, "mobile page should not render a phone shell border");
 assert.doesNotMatch(styleSource, /\.phone-frame\s*\{[^}]*border-radius:/s, "mobile page should not render phone shell rounded corners");

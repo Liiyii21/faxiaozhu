@@ -482,7 +482,7 @@ function LegalTool({
       <ResultPanel result={page.result} runAction={runAction} />
       <FlowStrip steps={page.flowSteps} activeStep={activeStep} handleStep={handleStep} />
 
-      <div className="phone-actions sticky-actions">
+      <div className="phone-actions inline-actions">
         <button className="primary" onClick={() => runAction("lawyer")} type="button">
           {page.primaryCta}
           <small>一对一沟通</small>
@@ -742,7 +742,7 @@ function DivinationTool({
       <button className="link-button warm-link" onClick={() => runAction("consult")} type="button">
         深度咨询
       </button>
-      <div className="phone-actions divination-actions sticky-actions">
+      <div className="phone-actions divination-actions inline-actions">
         <button className="secondary" onClick={() => runAction("spin")} type="button">
           {page.primaryCta}
         </button>

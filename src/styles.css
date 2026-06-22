@@ -624,14 +624,9 @@ a {
   font-weight: 700;
 }
 
-.sticky-actions {
-  position: sticky;
-  bottom: 0;
-  z-index: 5;
+.inline-actions {
   margin-inline: -2px;
-  padding: 9px 0 10px;
-  background: linear-gradient(180deg, rgba(5, 9, 24, 0), rgba(5, 9, 24, 0.96) 28%);
-  backdrop-filter: blur(10px);
+  padding: 9px 0 18px;
 }
 
 .bottom-nav {
