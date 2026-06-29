@@ -2159,8 +2159,6 @@ function AuthPanel({ busy, error, onLogout, onSubmit, page, session, user }) {
     session?.user?.first_name ||
     session?.user?.user_metadata?.first_name ||
     session?.user?.user_metadata?.name ||
-    user?.email?.split("@")[0] ||
-    session?.user?.email?.split("@")[0] ||
     "当前用户";
 
   function updateField(name, value) {
