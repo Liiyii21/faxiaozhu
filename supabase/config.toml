@@ -1,0 +1,2 @@
+[functions.service-analysis]
+verify_jwt = false

@@ -630,6 +630,13 @@ export async function submitSystemEvent({ pageId, actionId, values = {}, context
 }
 
 export async function analyzeLegalCase({ issue, actionId = "ask", context, session = getStoredSession() }) {
+  if (SUPABASE_ENABLED) {
+    return supabaseRequest("/functions/v1/service-analysis", {
+      method: "POST",
+      token: SUPABASE_ANON_KEY,
+      body: { page_id: "legal", issue, action_id: actionId, context },
+    });
+  }
   if (!REMOTE_DIRECTUS_ENABLED) return buildLocalLegalAnalysis({ issue, actionId, context, session });
   return directusRequest("/ai/legal/analyze", {
     method: "POST",
